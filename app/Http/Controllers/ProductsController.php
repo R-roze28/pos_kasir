@@ -15,7 +15,7 @@ class ProductsController extends Controller
     {
         $products = Products::all();
         $category = Category::all();
-        $max_data = 2;
+        $max_data = 5;
 
         // eager load relasi 'category' supaya tidak terjadi query berulang (N+1)
         $products = Products::with('category')->paginate($max_data);

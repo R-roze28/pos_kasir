@@ -13,6 +13,8 @@ class PosController extends Controller
     public function index()
     {
         $data = Products::all();
+        $max_data = 8;
+        $data = Products::with('category')->paginate($max_data);  
 
         return view('pos.index', compact('data'));
     }
