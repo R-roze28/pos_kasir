@@ -34,12 +34,16 @@
                     <h6 class="mb-3">Daftar Produk Cepat</h6>
                     <div class="row">
                         <!-- Produk 1 -->
+                        @foreach ($data as $item)
+                            
+                        
                         <div class="col-md-3 mb-3">
                             <div class="card product-card" style="cursor: pointer;">
                                 <div class="card-body text-center">
                                     <div class="mb-2">
                                         <i class="bi bi-cup-straw" style="font-size: 2rem; color: #4361ee;"></i>
                                     </div>
+<<<<<<< HEAD
                                     <h6 class="card-title mb-1">Kopi Hitam</h6>
                                     <p class="text-muted mb-1">RP 15,000</p>
                                     <small class="text-success">Stok: 25</small>
@@ -82,9 +86,15 @@
                                     <h6 class="card-title mb-1">Air Mineral</h6>
                                     <p class="text-muted mb-1">RP 5,000</p>
                                     <small class="text-success">Stok: 100</small>
+=======
+                                    <h6 class="card-title mb-1">{{ $item->name }}</h6>
+                                    <p class="text-muted mb-1">{{ $item->price }}</p>
+                                    <small class="text-success">{{ $item->stock }}</small>
+>>>>>>> f6153af
                                 </div>
                             </div>
                         </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
