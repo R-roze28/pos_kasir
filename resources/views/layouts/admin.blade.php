@@ -341,10 +341,13 @@
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link text-danger" href="/logout">
-                        <i class="bi bi-box-arrow-right"></i>
-                        <span class="nav-text">Logout</span>
-                    </a>
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button class="nav-link text-danger">
+                            <i class="bi bi-box-arrow-right"></i>
+                            <span class="nav-text">Logout</span>
+                        </button>
+                    </form>
                 </li>
             </ul>
         </div>
