@@ -365,7 +365,9 @@
             <div class="user-menu">
                 <div class="user-info">
                     <p class="user-name">Administrator</p>
-                    <p class="user-role">Super Admin</p>
+                    <p class="user-role">
+                        {{ auth()->user()->roleLabel() }}
+                    </p>
                 </div>
                 <div class="user-avatar">
                     <i class="bi bi-person-circle" style="font-size: 2rem; color: #4361ee;"></i>

@@ -149,7 +149,9 @@
                 <ul class="dropdown-menu dropdown-menu-end">
                     <li class="dropdown-header">
                         <small class="text-muted">Logged in as</small>
-                        <div class="fw-bold">Kasir Admin</div>
+                        <div class="fw-bold">
+                            {{ auth()->user()->roleLabel() }}
+                        </div>
                     </li>
                     <li><hr class="dropdown-divider"></li>
                     <li>

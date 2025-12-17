@@ -57,4 +57,10 @@ class User extends Authenticatable
     {
         return $this->role === 'cashier';
     }
+
+    public function roleLabel()
+    {
+        return ucfirst($this->name);
+    }
+
 }

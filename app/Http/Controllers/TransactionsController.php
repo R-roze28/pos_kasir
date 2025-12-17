@@ -6,6 +6,7 @@ use App\Models\Products;
 use App\Models\TransactionItems;
 use App\Models\Transactions;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class TransactionsController extends Controller
@@ -50,11 +51,12 @@ class TransactionsController extends Controller
 
         DB::transaction(function () use ($request, $cart, $total) {
 
-            $cashierId = config('pos.default_cashier_id'); // auth()->id() ?? 
+            // $cashierId = config('pos.default_cashier_id'); // auth()->id() ?? 
+            $user = Auth::user()->id;
 
             $transaction = Transactions::create([
                 'invoice_no' => 'INV-' . now()->format('YmdHis'),
-                'cashier_id' => $cashierId,
+                'cashier_id' => $user,
                 'total' => $total,
                 'paid' => $request->paid,
                 'change' => $request->paid - $total,
