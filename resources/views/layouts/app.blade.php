@@ -159,9 +159,10 @@
                     </li>
                     <li><hr class="dropdown-divider"></li>
                     <li>
-                        <a class="dropdown-item text-danger" href="/logout">
-                            <i class="bi bi-box-arrow-right me-2"></i>Logout
-                        </a>
+                        <form action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-danger">Logout</button>
+                        </form>
                     </li>
                 </ul>
             </div>

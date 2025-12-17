@@ -4,60 +4,31 @@ use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\TransactionsController;
 use Illuminate\Support\Facades\Route;
 
-// ========== PUBLIC ROUTES ==========
-
-// Landing/Login Page
-// Route::get('/', function () {
-//     return view('auth.login');
-// });
-
-// Login Route
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PosController;
 
+// LOGIN
 Route::get('/login', [LoginController::class, 'showLogin'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('login.post');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-
-// Dashboard Pilihan Login
-Route::get('/', function () {
-    return view('auth.login'); // Dashboard pilihan login
+// TEST AUTH
+Route::middleware(['auth', 'role:cashier'])->group(function () {
+    Route::get('/pos', [PosController::class, 'index'])->name('pos.index');
 });
 
-// Login Admin
-Route::get('/admin-login', function () {
-    return view('admin.login');
+// TEST ROLE
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('/admin', function () {
+        return view('admin.dashboard');
+    });
 });
 
-// Logout Route (Show confirmation page)
-Route::get('/logout', function () {
-    return view('auth.logout');
-});
-
-// Logout Action (Actually perform logout)
-Route::get('/logout-action', function () {
-    // In a real app, you would:
-    // 1. Clear session
-    // 2. Clear cookies
-    // 3. Log activity
-    // 4. Redirect to login
-    
-    // For demo, just redirect to login
-    return redirect('/login')->with('success', 'Anda telah logout dari sistem.');
-});
-
-// ========== APPLICATION ROUTES ==========
-
-// POS Routes
-// Route::get('/pos', function () {
-//     return view('pos.index');
-// });
 
 
 
-Route::get('/pos', [PosController::class, 'index'])->name('pos.index');
+// Route::get('/pos', [PosController::class, 'index'])->name('pos.index');
 Route::post('/pos/add', [PosController::class, 'addToCart'])->name('pos.add');
 Route::post('/pos/update', [PosController::class, 'updateCart'])->name('pos.update');
 Route::post('/pos/remove', [PosController::class, 'removeFromCart'])->name('pos.remove');
