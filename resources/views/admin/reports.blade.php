@@ -171,6 +171,42 @@
     </div>
 </div>
 
+
+
+<!-- Charts - SAME HEIGHT -->
+<div class="row g-2">
+    <div class="col-md-8">
+        <div class="card dashboard-card h-100">
+            <div class="card-header py-2 px-3">
+                <h5 class="mb-0" style="font-size: 0.95rem;">Trend Penjualan</h5>
+                <small class="text-muted">
+                    @if($period == 'week')
+                        Minggu Ini
+                    @elseif($period == 'month')
+                        Bulan Ini
+                    @else
+                        Periode {{ $startDate->format('d/m/Y') }} - {{ $endDate->format('d/m/Y') }}
+                    @endif
+                </small>
+            </div>
+            <div class="card-body p-2" style="min-height: 180px;">
+                <canvas id="salesChart" height="130"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card dashboard-card h-100">
+            <div class="card-header py-2 px-3">
+                <h5 class="mb-0" style="font-size: 0.95rem;">Metode Pembayaran</h5>
+                <small class="text-muted">Distribusi berdasarkan metode</small>
+            </div>
+            <div class="card-body p-2 d-flex align-items-center justify-content-center" style="min-height: 180px;">
+                <canvas id="paymentChart" height="130"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Transactions Table -->
 <div class="row mb-3">
     <div class="col-12">
@@ -301,39 +337,6 @@
     </div>
 </div>
 
-<!-- Charts - SAME HEIGHT -->
-<div class="row g-2">
-    <div class="col-md-8">
-        <div class="card dashboard-card h-100">
-            <div class="card-header py-2 px-3">
-                <h5 class="mb-0" style="font-size: 0.95rem;">Trend Penjualan</h5>
-                <small class="text-muted">
-                    @if($period == 'week')
-                        Minggu Ini
-                    @elseif($period == 'month')
-                        Bulan Ini
-                    @else
-                        Periode {{ $startDate->format('d/m/Y') }} - {{ $endDate->format('d/m/Y') }}
-                    @endif
-                </small>
-            </div>
-            <div class="card-body p-2" style="min-height: 180px;">
-                <canvas id="salesChart" height="130"></canvas>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card dashboard-card h-100">
-            <div class="card-header py-2 px-3">
-                <h5 class="mb-0" style="font-size: 0.95rem;">Metode Pembayaran</h5>
-                <small class="text-muted">Distribusi berdasarkan metode</small>
-            </div>
-            <div class="card-body p-2 d-flex align-items-center justify-content-center" style="min-height: 180px;">
-                <canvas id="paymentChart" height="130"></canvas>
-            </div>
-        </div>
-    </div>
-</div>
 @endsection
 
 @section('scripts')

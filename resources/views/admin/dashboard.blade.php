@@ -155,7 +155,62 @@
     </div>
 </div>
 
+
+
+<!-- Charts -->
+<div class="row mb-4">
+    <div class="col-lg-8">
+        <div class="card dashboard-card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-graph-up me-2"></i>Pendapatan 7 Hari Terakhir
+                </h5>
+            </div>
+            <div class="card-body">
+                <canvas id="revenueChart" height="180"></canvas>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-4">
+        <div class="card dashboard-card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-pie-chart me-2"></i>Metode Pembayaran Hari Ini
+                </h5>
+            </div>
+            <div class="card-body">
+                @if(count($paymentData) > 0)
+                <canvas id="paymentChart" height="180"></canvas>
+                @else
+                <div class="text-center py-4">
+                    <i class="bi bi-pie-chart display-6 text-muted"></i>
+                    <p class="mt-2 text-muted">Belum ada data pembayaran hari ini</p>
+                </div>
+                @endif
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for Transaction Detail -->
+<div class="modal fade" id="transactionDetailModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Detail Transaksi</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" id="transactionDetailBody">
+                <!-- Detail akan dimuat via AJAX -->
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Recent Transactions -->
+
+
 <div class="row">
     <div class="col-12">
         <div class="card dashboard-card">
@@ -231,57 +286,6 @@
                     <p class="mt-2 text-muted">Belum ada transaksi hari ini</p>
                 </div>
                 @endif
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Charts -->
-<div class="row mb-4">
-    <div class="col-lg-8">
-        <div class="card dashboard-card">
-            <div class="card-header">
-                <h5 class="mb-0">
-                    <i class="bi bi-graph-up me-2"></i>Pendapatan 7 Hari Terakhir
-                </h5>
-            </div>
-            <div class="card-body">
-                <canvas id="revenueChart" height="180"></canvas>
-            </div>
-        </div>
-    </div>
-    
-    <div class="col-lg-4">
-        <div class="card dashboard-card">
-            <div class="card-header">
-                <h5 class="mb-0">
-                    <i class="bi bi-pie-chart me-2"></i>Metode Pembayaran Hari Ini
-                </h5>
-            </div>
-            <div class="card-body">
-                @if(count($paymentData) > 0)
-                <canvas id="paymentChart" height="180"></canvas>
-                @else
-                <div class="text-center py-4">
-                    <i class="bi bi-pie-chart display-6 text-muted"></i>
-                    <p class="mt-2 text-muted">Belum ada data pembayaran hari ini</p>
-                </div>
-                @endif
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal for Transaction Detail -->
-<div class="modal fade" id="transactionDetailModal" tabindex="-1">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Detail Transaksi</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body" id="transactionDetailBody">
-                <!-- Detail akan dimuat via AJAX -->
             </div>
         </div>
     </div>
