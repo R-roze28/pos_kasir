@@ -7,7 +7,7 @@
     <!-- Kolom Kiri: Input Produk -->
     <div class="{{ $hasCart ? 'col-md-8' : 'col-md-12' }}">
         <div class="card shadow-sm border-0">
-            <div class="card-header bg-gradient-primary text-white">
+            <div class="card-header bg-primary text-white">
                 <h5 class="mb-0">
                     <i class="bi bi-upc-scan me-2"></i>Input Produk
                 </h5>
