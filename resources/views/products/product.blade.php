@@ -6,7 +6,7 @@
 <div class="row">
     <div class="col-md-12">
         <div class="card border-0 shadow-sm">
-            <div class="card-header bg-gradient-primary text-white d-flex justify-content-between align-items-center py-3">
+            <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center py-3">
                 <div>
                     <h5 class="mb-0 fw-bold">
                         <i class="bi bi-box-seam me-2"></i>Daftar Produk
